@@ -64,17 +64,13 @@ class Personnage {
 
   // Si il n'y a pas de contact entre un mur et un personnage et qu'un des 4 déplacements est effectué par l'activation d'une flèche directionnelle il se déplace
   void mouv(String persoSelectionne, boolean contact) {
-      robot = minim.loadFile("pacman_waka_waka.mp3");
     if (persoSelectionne == perso) {
+      robot = minim.loadSnippet("waka_waka3.mp3");
       // Si c'est gauche
       if ( keyCode == LEFT) {
-        if (robot.isPlaying() == false) {
-          robot.play();
-        } else {
-          robot.close();
-        }
         if (contact && (poseX>25 && poseX<375 && poseY>25 && poseY<775 || poseX>475 && poseX<775 && poseY>25 && poseY<775)) {
           poseX -=0.5;
+          robot.play();
         } else {
           keyCode = 0;
         }
@@ -83,6 +79,7 @@ class Personnage {
       if ( keyCode == RIGHT) {
         if (contact && (poseX>25 && poseX<328 && poseY>25 && poseY<775 || poseX>455 && poseX<775 && poseY>25 && poseY<775)) {
           poseX +=0.5;
+          robot.play();
         } else {
           keyCode = 0;
         }
@@ -91,6 +88,7 @@ class Personnage {
       if ( keyCode == UP) {
         if (contact && (poseY>25 && poseY<330 && poseX>25 && poseX<775 || poseY>475 && poseY<775 && poseX>25 && poseX<775)) {
           poseY -=0.5;
+          robot.play();
         } else {
           keyCode = 0;
         }
@@ -99,6 +97,7 @@ class Personnage {
       if ( keyCode == DOWN ) {
         if (contact && (poseY>25 && poseY<328 && poseX>25 && poseX<775 || poseY>455 && poseY<775 && poseX>25 && poseX<775)) {
           poseY +=0.5;
+          robot.play();
         } else {
           keyCode = 0;
         }

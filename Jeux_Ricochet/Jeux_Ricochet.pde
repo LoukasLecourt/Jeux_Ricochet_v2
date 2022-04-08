@@ -14,7 +14,7 @@ String persoSelectionne = "jaune";
 // Import kit musique
 import ddf.minim.*;
 AudioPlayer player;
-AudioPlayer robot;
+AudioSnippet robot;
 Minim minim;
 
 // Setup
